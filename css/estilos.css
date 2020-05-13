@@ -1,40 +1,94 @@
+/* soft reset do css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NDQ0NDQ0HDQ0NDQ0HDQcHDQ8NDQ0NFREWFhURExMYHSggGBoxGxMTITEhJSk3LjouFx8zODM4NygtLisBCgoKDQ0NDw0NDysZFRkrLS0rKy0rKysrKys3LSs3KysrKystKysrLSsrNystLSsrLSsrKystLSstKysrKysrLf/AABEIALEBHAMBIgACEQEDEQH/xAAaAAEBAQEBAQEAAAAAAAAAAAADAgQBAAUH/8QAGRABAQEBAQEAAAAAAAAAAAAAAAIBAxIR/8QAGQEAAwEBAQAAAAAAAAAAAAAAAQIDAAUE/8QAFxEBAQEBAAAAAAAAAAAAAAAAAAERAv/aAAwDAQACEQMRAD8A/Ncx3MdzHcx1Y5b2YrMezF5h4GuZisx3MVmGgOZjvxWYrMPBT8dzF+XckRR8d+L8u+WwdR8e+E8u+Ww2j8u5JPLvkcFGS7kkyVZLYI8lWSTJVkthoPJXkkyFZAWGg8lWSXIVkFsUgcl3ybw74JYpAeXNlo8J2U6eM+yipadkdSSnZqkNS11IaklFlrA1jVchqU6zNWI3D1KNkrIzFZj2YrMe6OK9mLzHsxeYaA5mLzHcxeSeNqcleSrJVkmbU5LuSTJVkmHRZKvJMl3y2Do/Lvkvl3JHB0Xl3JLkqyRw2iyVZJclWQ2Do8hWQXIXkNhpRZC8guQTICw8DkKyDZCsglikB4d8NHh7wSxWM3hOw1bCdhOxSMtSKpa6kdSSmjHUiuWu5Dcp0zHchuWu5DckrMlSjZaKweyRgZi8xzMXmPdHCdzF5jmYScNAezCZj04ScPGcyV5LuYTJNG1OSrJXkqyTNqMl3JJkqyRNo8l3JJkqyTYOiyVZJclWSODo8lWSTJXkjg6PIJkEyFzDYaUeQTIJMEyC2KSiyFZBshWQSxWUHh7wfw9sJ2Kys2ynZadlFSnYpGWpDUtdSG5Tp4y3ILlruQXhKZkuQXjVeAvE6LNWD3D3gtwlZmzF5icwk49scBU4ScTOEnDwFThJxycJOGgOzhMx6cXOHjPZK8l3MXmC2pyVZK8lWSeDqMlWSvJVkmg6jJVkryV5JpB1GSuZXkkmRwZUTJJhcwSYbDSomF5BJgmQWxWUWQrwXJV5JYrKDy5stHlOylYrKz1I6lpqRVidikrNUhvGm8DeJ1SMt4z3jVeM/TE6ZlvGe8aujPadFnvBaaxaSizYScRhJeyOAuSTiJws4eFXOFnEThZw0BU4SccnCThoGu5hMxycJmHja9mKzHcxeYaNrmSrJVmLyTwdTkryVZK5k8bUzJJlUySZMaVMyWZVMkmWw8qZleSuZXklqkqMl3yTy75TsVlD5Tsm3EViVVlBWCvGisDeJ1WVmvAXjTeM9pVSM3Rn6NPRm6J08ZejPbR0ZuidEFj0lh3SURYSUYSXrjgUklnByWTwpJws4iSyeFXOElElnDQFThJxM4ScNG1WYvMckk4aM9OEzHJwk4eNrsySZcnCzh4OvTJJl6cLMnGPTJJl2ZJOBTxzJVkqzFZhbVYn498X8c3CVWD3B1htHSdVgKDZ7BaVVjPbP0aOjN0SqsZ+jL0aejL01OmjN01m6afprN01Om0N6HdXei3SVtewsjwkvXHCpZLIpNJ4SlksiksmhSSWRySTASSSiSSaMuSTiJJJoy5LI5LJ4y5ws4iSyeCucLOInCzhhipwmYnMXhapHcxXx7HSqR5OqTuhVYih0utFWp1Xkds96a9Z71OqwPTWbpp+msvTUqrAdNZOmtHTWTrqdMDprL00/XWXpqdHQ3od1d6HdJW1owkikkvXHDppNIZLJ4Smkshk0nhSySRSWTAWVyOSSLFkkinSZosWSyGSyaCeSyGSzpoJpLIZ0s6bTQuLwWavNCni3fqPr3oFIrdRuubSKotVj1aK9dqg3RKrE3oL1V0C6TqsH01m6aXpTL0pKqQXTWTrRulMvSiUwOmsvTTdKZemp1hXot1V6HdTrNskkUknXrji08lkElnVIWnkshnSTp4Q86SdDOkzRA06SdDOrzRY+aSdBOknRE86WdZ50s6ItM6WdZp0s0aU2NM6SdZpomUJo0ZSsoGU76E0P6c2g+3NsFITaRVD20VZKpFVQqpNWKrJVY7dM907dguk6pE9KZulL6UzdKTqkH0pl6UXpTL0pOmF0pl6aXpTN01OsO9Fuu3o90lZ9DNLOhnSTr2Rx6adNOgnSzp4SnnSToJ0s6eFNOknQZpM0QPmrygZS8pmPOkmmfKXlNo40zRZplmiTQ6bGqaLNMs0SaNpsappeUzZS8sTRoynfbP7d9iaH9p2w+07YHhdtFWKrHVlp4SrFVoqxVZKrFXYLtyrDdp1SPXTP0p26Z7pOnielM3Sl9KZ+lJ0w+lM16S6Z71OiitFuu1o91Os+pmknRZq517Y5FPOknQzpJ08JTzpM0E6TNNCmzV5oc1eaIGzVZoc1Wa2ifKXNAyl5raLRNEmmbKJNDpsaZok0zTS8oZTNOUvKZspWUbRaPb3sHp70OjDe07YtpO0GnhNsdWjaRtFqkVVjqk1QqolUjtUG6eqhVRKpHLoF0q6BdJ08RdM90u9Bep0R3rPekvQXqVFFaPddrR7qdovsYSXnnvjk0kkl140JV4THnjlXiseeEFYrHngFeLx55hi5XjzwwxMXLzwiuVY88Yysc154Rc1OvPAaI1GvPFqkHo6eeJVIKg088SngbBbzydPAWC3nk6YFgt55KiGhvPEov/Z");
-    background-size: auto 100vh;
-    font-family: Arial;
-    height: 100vh;
+  background-image: url("../img/fundo.jpg");
+  background-size: auto 100vh;
+  font-family: Arial;
+  height: 100vh;
+  font-size: 12px;
+}
+
+/* se a tela tiver pelo menos 400px, vai carregar estes estilos */
+@media (min-width: 400px) {
+  body {
+    font-size: 14px;
   }
-  
-  .menu {
-    background-color: white;
+}
+
+/* breackpoint */
+@media (min-width: 600px) {
+  body {
+    font-size: 18px;
   }
-  
-  .menu ul {
-    display: flex;
-    justify-content: space-around;  
+}
+
+/* breackpoint */
+@media (min-width: 1200px) {
+  body {
+    font-size: 20px;
+    background-image: none;
+    background-color: deeppink;
   }
+}
+
+header {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.menu {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100vw;
   
-  .menu li {
-    list-style: none;
-  }
-  
-  a {
-    color: teal;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  .site-subtitle, 
-  .site-title {
-    color: whitesmoke;
-    text-align: center;
-  }
-  
-  .site-subtitle {
-    font-style: italic;
-  }
-  
-  
+}
+
+.menu ul {
+  display: flex;
+  justify-content: space-around;  
+}
+
+.menu li {
+  list-style: none;
+}
+
+.menu a {
+  display: block;
+  padding: 10px 20px;
+}
+
+a {
+  color: teal;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.site-subtitle, 
+.site-title {
+  color: whitesmoke;
+  text-align: center;
+}
+
+.site-title{
+  font-size: 4em;
+}
+
+.site-subtitle {
+  font-style: italic;
+}
+
+.img-portfolio {
+  height: 180px;
+  width: 180px;
+}
